@@ -1,8 +1,1336 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>github io test page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jody816.github.io</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: "#0ea5e9",
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+      function showLang(lang) {
+        document
+          .querySelectorAll(".lang-section")
+          .forEach((el) => el.classList.add("hidden"));
+
+        document
+          .querySelectorAll(`[id^="lang-${lang}"]`)
+          .forEach((el) => el.classList.remove("hidden"));
+
+        ["ko", "ja"].forEach((l) => {
+          document
+            .querySelectorAll(`#btn-${l}-pc, #btn-${l}-mobile`)
+            .forEach((btn) => {
+              btn.classList.remove(
+                "border-blue-200",
+                "shadow-lg",
+                "scale-110",
+                "pointer-events-none"
+              );
+            });
+        });
+
+        document
+          .querySelectorAll(`#btn-${lang}-pc, #btn-${lang}-mobile`)
+          .forEach((btn) => {
+            btn.classList.add(
+              "rounded-full",
+              "border-blue-200",
+              "shadow-lg",
+              "scale-110",
+              "pointer-events-none"
+            );
+          });
+      }
+
+      window.onload = () => showLang("ko");
+    </script>
+
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      // 외부 클릭 시 mobileMenu 닫기
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("mobileMenu");
+        const burger = event.target.closest("button"); // 햄버거 버튼
+
+        // 드롭다운이 열려 있고, 클릭한 대상이 메뉴나 버튼이 아니라면 닫기
+        if (
+          menu &&
+          !menu.classList.contains("hidden") &&
+          !menu.contains(event.target) &&
+          !event.target.closest("#mobileMenu") &&
+          !event.target.closest("button") // 햄버거 버튼 예외 처리
+        ) {
+          menu.classList.add("hidden");
+        }
+      });
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "MangoDdobak-B";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        unicode-range: U+AC00-D7AF;
+      }
+
+      .korean-font {
+        font-family: "MangoDdobak-B", sans-serif;
+      }
+
+      .japanese-font {
+        font-family: "M PLUS 1p", sans-serif;
+      }
+
+      .comfortaa {
+        font-family: "Comfortaa", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
   </head>
-  <body>
-    <h3>으아아아아</h3>
+
+  <body class="bg-white text-black min-h-screen overflow-y-auto">
+    <!-- Header -->
+    <header class="relative border-b shadow">
+      <div
+        class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between"
+      >
+        <!-- 로고 -->
+        <div>
+          <p
+            class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-300"
+          >
+            PINGU
+          </p>
+        </div>
+
+        <!-- PC 메뉴 -->
+        <div
+          class="hidden md:flex items-center justify-center gap-10 text-gray-500 font-semibold"
+        >
+          <p
+            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
+          >
+            Home
+          </p>
+          <p
+            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
+          >
+            About
+          </p>
+          <p
+            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
+          >
+            Tech Stack
+          </p>
+          <p
+            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
+          >
+            Projects
+          </p>
+          <p
+            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
+          >
+            Contact
+          </p>
+        </div>
+        <!-- 언어 버튼 -->
+        <div class="hidden md:flex items-center gap-2">
+          <img
+            src="https://img.freepik.com/premium-vector/south-korea-circle-flag_1143296-461.jpg?semt=ais_hybrid&w=740"
+            id="btn-ko-pc"
+            alt="한국어"
+            onclick="showLang('ko')"
+            class="w-8 h-8 cursor-pointer border border-transparent rounded hover:scale-110 transition"
+          />
+          <img
+            src="https://media.istockphoto.com/id/1465271757/ko/%EB%B2%A1%ED%84%B0/%EB%9D%BC%EC%9A%B4%EB%93%9C-%EC%9D%BC%EB%B3%B8-%EA%B5%AD%EA%B8%B0-%EC%95%84%EC%9D%B4%EC%BD%98.jpg?s=170667a&w=0&k=20&c=XgyciQMde_p-aRGCIgOO2xipOQrgyKGApP5P8TxqyIw="
+            id="btn-ja-pc"
+            alt="日本語"
+            onclick="showLang('ja')"
+            class="w-8 h-8 cursor-pointer border border-transparent rounded hover:scale-110 transition"
+          />
+        </div>
+
+        <!-- Mobile: 언어 버튼 + 햄버거 버튼 -->
+        <div class="md:hidden flex items-center gap-2">
+          <!-- 언어 버튼 -->
+          <img
+            src="https://img.freepik.com/premium-vector/south-korea-circle-flag_1143296-461.jpg?semt=ais_hybrid&w=740"
+            id="btn-ko-mobile"
+            alt="한국어"
+            onclick="showLang('ko')"
+            class="w-8 h-8 cursor-pointer border border-transparent rounded hover:scale-110 transition"
+          />
+          <img
+            src="https://media.istockphoto.com/id/1465271757/ko/%EB%B2%A1%ED%84%B0/%EB%9D%BC%EC%9A%B4%EB%93%9C-%EC%9D%BC%EB%B3%B8-%EA%B5%AD%EA%B8%B0-%EC%95%84%EC%9D%B4%EC%BD%98.jpg?s=170667a&w=0&k=20&c=XgyciQMde_p-aRGCIgOO2xipOQrgyKGApP5P8TxqyIw="
+            id="btn-ja-mobile"
+            alt="日本語"
+            onclick="showLang('ja')"
+            class="w-8 h-8 cursor-pointer border border-transparent rounded hover:scale-110 transition"
+          />
+
+          <!-- 햄버거 버튼 -->
+          <button
+            onclick="toggleMobileMenu()"
+            class="text-gray-700 focus:outline-none hover:scale-110 transition"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 모바일 드롭다운 메뉴 (겹쳐서 아래에) -->
+      <div
+        id="mobileMenu"
+        class="absolute top-14 left-0 w-full bg-white z-50 hidden flex-col items-center gap-4 py-4 shadow-md border-t text-gray-500 font-semibold md:hidden"
+      >
+        <p
+          class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
+        >
+          Home
+        </p>
+        <p
+          class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
+        >
+          About
+        </p>
+        <p
+          class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
+        >
+          Tech Stack
+        </p>
+        <p
+          class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
+        >
+          Projects
+        </p>
+        <p
+          class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
+        >
+          Contact
+        </p>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-5xl mx-auto px-4 py-16">
+      <div>
+        <!-- Profile 섹션 -->
+        <section
+          class="max-w-7xl mx-auto h-auto flex flex-col md:flex-row items-center justify-between px-4 gap-8"
+        >
+          <!-- 🇰🇷 한국어 -->
+          <div id="lang-ko-profile" class="lang-section w-full md:w-1/2">
+            <h1
+              class="text-[40px] sm:text-[48px] font-bold leading-snug korean-font"
+            >
+              안녕하세요 🙂‍↕️<br />
+              저는
+              <span
+                class="bg-gradient-to-r from-[#925CFF] to-[#5398FF] bg-clip-text text-transparent font-bold"
+              >
+                오재현
+              </span>
+              입니다!<br />
+              잘 부탁드립니다! ✌️
+            </h1>
+          </div>
+
+          <!-- 🇯🇵 일본어 -->
+          <div id="lang-ja-profile" class="lang-section w-full md:w-1/2 hidden">
+            <h1
+              class="text-[40px] sm:text-[48px] font-bold leading-snug japanese-font"
+            >
+              こんにちは 🙂‍↕️,<br />
+              私は
+              <span
+                class="bg-gradient-to-r from-[#5398FF] to-[#925CFF] bg-clip-text text-transparent font-bold"
+              >
+                <ruby>呉<rt class="text-gray-500 text-sm">オ</rt></ruby>
+                <ruby> ·</ruby>
+                <ruby>在<rt class="text-gray-500 text-sm">ジェ</rt></ruby>
+                <ruby>賢<rt class="text-gray-500 text-sm">ヒョン</rt></ruby>
+              </span>
+              です!<br />
+              よろしくお願いします！✌️
+            </h1>
+          </div>
+
+          <!-- 프로필 이미지 (언어 공통) bg-gradient-to-r from-[#FFC0C2] to-[#F6F1B5] -->
+          <div
+            class="p-2.5 rounded-full bg-gradient-to-r from-purple-400 to-blue-300 w-[280px] h-[280px] shrink-0"
+          >
+            <img
+              src="https://lh3.googleusercontent.com/d/1skJkAN8fmipakWyMI2Iuba2gbkEci04I"
+              alt="Profile"
+              class="w-full h-full rounded-full object-cover object-top"
+            />
+          </div>
+        </section>
+
+        <!-- 에듀케이션 섹션 -->
+        <section class="mt-24" id="education">
+          <!-- 한국어 -->
+          <div id="lang-ko-edu" class="lang-section korean-font">
+            <div class="korean-font text-center mb-8">
+              <div class="flex justify-center items-center gap-4">
+                <h1 class="sm:text-[30px]">🎓</h1>
+                <h1
+                  class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                >
+                  학력 및 교육
+                </h1>
+                <h1 class="sm:text-[30px]">🎓</h1>
+              </div>
+
+              <h2 class="text-2xl mt-4 text-gray-800">
+                저의 학업 및 부트캠프 이수 이력입니다
+              </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+              <!-- 대학 -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-[#925CFF]">용인대학교</h3>
+                <p class="text-sm text-gray-500">
+                  컴퓨터공학과 · 2018.03 ~ 2024.08
+                </p>
+                <p class="mt-3 text-gray-700">
+                  알고리즘, 운영체제, 데이터베이스 등 전반적인 전공 과목
+                  이수.<br />
+                  웹/윈도우 애플리케이션 개발을 경험.
+                </p>
+              </div>
+
+              <!-- 프디아 -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-blue-600">
+                  프로디지털 아카데미 4기
+                </h3>
+                <p class="text-sm text-gray-500">2024.03 ~ 2024.09</p>
+                <p class="mt-3 text-gray-700">
+                  Java, Spring Boot, React 기반 풀스택 웹 개발 학습.<br />
+                  팀 프로젝트로 금융 웹앱 제작, CI/CD 및 AWS 배포 경험.
+                </p>
+              </div>
+
+              <!-- 글로벌인 -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-[#5398FF]">
+                  25년도 글로벌인 IT 1기
+                </h3>
+                <p class="text-sm text-gray-500">2025.03 ~ 2025.07</p>
+                <p class="mt-3 text-gray-700">
+                  Java, Spring, DB, Web Programming, Python 기반 IT 교육.<br />
+                  일본어 비즈니스 회화 및 실무 프로젝트 수행.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 일본어 -->
+          <div id="lang-ja-edu" class="lang-section hidden japanese-font">
+            <div class="japanese-font text-center mb-8">
+              <div class="flex justify-center items-center gap-4">
+                <h1 class="sm:text-[40px]">🎓</h1>
+                <h1
+                  class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                >
+                  学歴及び教育
+                </h1>
+                <h1 class="sm:text-[40px]">🎓</h1>
+              </div>
+
+              <h2 class="text-2xl mt-4 text-gray-800">
+                大学およびITスクールの履歴です
+              </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+              <!-- 大学 -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-[#925CFF]">龍仁大学</h3>
+                <p class="text-sm text-gray-500">
+                  コンピュータ工学科 · 2018.03 ~ 2024.08
+                </p>
+                <p class="mt-3 text-gray-700">
+                  アルゴリズム、OS、DBなどCS基礎科目を履修。<br />
+                  卒業研究ではWeb学習プラットフォームを開発。
+                </p>
+              </div>
+
+              <!-- ブートキャンプ -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-blue-600">
+                  プロデジタルアカデミー 第4期
+                </h3>
+                <p class="text-sm text-gray-500">2024.03 ~ 2024.09</p>
+                <p class="mt-3 text-gray-700">
+                  Java、Spring Boot、Reactを用いたフルスタック開発を学習。<br />
+                  金融サービスのWebアプリ開発、CI/CDとAWSデプロイを経験。
+                </p>
+              </div>
+
+              <!-- 글로벌인 -->
+              <div class="bg-white p-6 rounded-lg shadow-lg border">
+                <h3 class="text-xl font-bold text-[#5398FF]">
+                  グローバル人材育成 IT第1期
+                </h3>
+                <p class="text-sm text-gray-500">2025.03 ~ 2025.07</p>
+                <p class="mt-3 text-gray-700">
+                  Java、Spring、DB、Webプログラミング、Pythonを中心にIT教育を受講。<br />
+                  日本語ビジネス会話および実務プロジェクトを経験。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tech Stack 섹션 -->
+        <section class="mt-24">
+          <!-- 한국어 -->
+          <div id="lang-ko-tech" class="lang-section">
+            <div class="korean-font text-center mb-8">
+              <div class="flex justify-center items-center gap-4">
+                <h1 class="sm:text-[30px]">🛠️</h1>
+                <h1
+                  class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                >
+                  기술 스택
+                </h1>
+                <h1 class="sm:text-[30px]">🛠️</h1>
+              </div>
+
+              <h2 class="text-2xl mt-4 text-gray-800">
+                주로 사용하는 기술 스택입니다
+              </h2>
+            </div>
+          </div>
+
+          <!-- 일본어 -->
+          <div id="lang-ja-tech" class="lang-section hidden">
+            <div class="text-center mb-8 japanese-font">
+              <div class="flex justify-center items-center gap-4">
+                <h1 class="sm:text-[40px]">🛠️</h1>
+                <h1
+                  class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                >
+                  技術スタック
+                </h1>
+                <h1 class="sm:text-[40px]">🛠️</h1>
+              </div>
+
+              <h2 class="text-2xl mt-4 text-gray-800">
+                主に使用する技術スタックです
+              </h2>
+            </div>
+          </div>
+
+          <!-- 공통 이미지 (언어와 무관) -->
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 place-items-center"
+          >
+            <img
+              src="https://heropy.blog/css/images/vendor_icons/html5.png"
+              alt="HTML5"
+              class="w-30 h-30 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://img.icons8.com/color/512/java-coffee-cup-logo.png"
+              alt="Java"
+              class="w-24 h-24 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://youseong.me/img/indexImage/springbootLogo.png"
+              alt="Spring"
+              class="w-30 h-30 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://img.icons8.com/color/512/javascript.png"
+              alt="JavaScript"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://images.icon-icons.com/2415/PNG/512/typescript_original_logo_icon_146317.png"
+              alt="TypeScript"
+              class="w-16 h-16 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png"
+              alt="React"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://ko.vite.dev/logo.svg"
+              alt="Vite"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png"
+              alt="Git"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://blog.retrotv.dev/content/images/2022/08/spring-data-logo.png"
+              alt="SpringDataJPA"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://img.icons8.com/color/512/redis.png"
+              alt="Redis"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://images.icon-icons.com/2699/PNG/512/tailwindcss_logo_icon_167923.png"
+              alt="tailwindcss"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://www.cncf.co.kr/wp-content/uploads/2024/12/mysql-300x300.webp"
+              alt="MySQL"
+              class="w-28 h-28 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://images.seeklogo.com/logo-png/31/2/amazon-web-services-aws-logo-png_seeklogo-319188.png"
+              alt="AWS"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+            <img
+              src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-logo-freebies-pack-logos-icons-1175140.png"
+              alt="mongoDB"
+              class="w-20 h-20 object-contain hover:scale-110 transition"
+            />
+          </div>
+        </section>
+
+        <!-- 프로젝트 섹션 -->
+        <section class="mt-24">
+          <div id="lang-ko-tech" class="lang-section korean-font">
+            <div class="max-w-5xl mx-auto px-4">
+              <!-- 제목 -->
+              <div class="korean-font text-center mb-8">
+                <div class="flex justify-center items-center gap-4">
+                  <h1 class="sm:text-[27px]">💻</h1>
+                  <h1
+                    class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                  >
+                    프로젝트
+                  </h1>
+                  <h1 class="sm:text-[27px]">💻</h1>
+                </div>
+
+                <h2 class="text-2xl mt-4 text-gray-800">
+                  제가 진행한 팀 프로젝트입니다
+                </h2>
+              </div>
+
+              <!-- 그리드 -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-16 gap-8"
+              >
+                <!-- 카드 1 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1dd4i9HC1gNnZEn6gK1j5TJ6kfLthWH95"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="text-lg font-semibold text-gray-900">
+                        코츠코츠
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2025.06 ~ 2025.07
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span class="">4인</span>
+                      </span>
+                    </div>
+
+                    <p class="mt-2 text-sm text-gray-600">
+                      「언제 어디서나, 일본어를 더 가까이」<br />
+                      일본어를 배우고 싶은 한국인이 시간과 장소의 제약 없이
+                      온라인으로 학습할 수 있도록 설계된 서비스입니다.<br />
+                      단순한 언어 학습을 넘어, 학습자와 튜터를 연결해 실시간
+                      소통, 화상채팅, 커뮤니티 활동을 지원하며, 이를 통해 주도적
+                      학습과 언어 능력의 성장을 돕습니다.
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, Spring Data JPA, Spring Security, MySQL,
+                        Redis, JavaScript, React, Tailwind css, Vite, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <!-- PDF 버튼 -->
+                        <a
+                          href="https://drive.google.com/file/d/1HxTLX__NdrFOp9jDchUlOSqzjO39ztNR/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+
+                        <!-- GitHub 아이콘 -->
+                        <a
+                          href="https://github.com/Globalin-IT-3Group"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 카드 2 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1KoE4D0SGiyC-ZCpj8S9jiQWEDMBTqEU8"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        140PAY
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.08 ~ 2024.09
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span class="">6인</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「증권 담보 간편 신용결제 서비스」<br />
+                      보유 증권을 담보로 신용 한도를 설정해 QR 코드 기반
+                      간편결제를 지원하는 서비스입니다.<br />주식을 매도하지
+                      않고도 필요한 자금을 활용할 수 있으며, 사용액에 따라 후불
+                      결제가 가능합니다. 서비스명 ‘140PAY’의 140은
+                      담보유지율(140%)을 의미해 안정성을 상징합니다.
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, Spring Data JPA, Spring Security, Spring
+                        Cloud, MySQL, Redis, Rabbit MQ, TypeScript, React,
+                        Tailwind css, Vite, FCM, PWA, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <!-- PDF 아이콘 버튼 -->
+                        <a
+                          href="https://drive.google.com/file/d/1XiryK2jjbBIIhBte0Lj9zbE5LY-rCWiH/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+
+                        <!-- GitHub 아이콘 -->
+                        <a
+                          href="https://github.com/pda-pay"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 카드 3 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1vVq7VntT3njrMtI_Iwqd2HMhe5VTtWa-"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        Typer
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.05 ~ 2024.06
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span class="">5인</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「주식 투자자를 위한 투자일지 서비스」<br />
+                      투자일지를 손쉽게 기록·공유할 수 있는 플랫폼으로,
+                      재무제표·애널리스트 리포트·종가 데이터 등을 블록 형태로
+                      제공하여 편리한 작성이 가능하도록 했습니다.<br />커뮤니티
+                      기능을 통해 다른 투자자들과 의견을 나누고 인사이트를 얻을
+                      수 있습니다.
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500 min-h-16">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        JavaScript, Express.js, TypeScript, React, Tailwind css,
+                        Vite, Redux toolkit, mongoDB, Docker, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <!-- PDF 아이콘 버튼 -->
+                        <a
+                          href="https://drive.google.com/file/d/150zHJvvavWrNUJIDS0Y0oxvtWDHkdtYE/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+
+                        <!-- GitHub 아이콘 -->
+                        <a
+                          href="https://github.com/Typerproject"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 카드 4 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1yDSbK-mcQU7RIDh-b3nnsHlJ3O6XU3Nx"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        On My Subway
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.05 ~ 2024.05
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span class="">4인</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「지하철 좌석 정보 공유 서비스」<br />
+                      지하철에서 누군가 언제 내리는지가 데이터가 되고, 사용자는
+                      서서 가기도 하고 앉아서 가기도 하며 정보를 줄 수도, 받을
+                      수도 있습니다.<br />서로의 좌석 정보를 공유해 더 편리한
+                      이동을 돕는 서비스입니다.
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        JavaScript, Node.js, React, Vite, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <!-- PDF 아이콘 버튼 -->
+                        <a
+                          href="https://drive.google.com/file/d/1K47RzmzX1K6i8JNve1M4r_Cm5uZa3th_/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+
+                        <!-- GitHub 아이콘 -->
+                        <a
+                          href="https://github.com/pda4Team7"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- 카드 5 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1V5qNWlUq_K2rX74C0Ld-WJ7Z_g5Rt6ya"
+                    alt="프로젝트 미리보기 이미지"
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        Hooligans
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2023.09 ~ 2023.11
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span class="">4인</span>
+                      </span>
+                    </div>
+
+                    <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                      「EPL 팬 커뮤니티 서비스」<br />
+                      EPL 경기 정보를 얻거나, 혼자 경기를 볼 때도 의견을 나누며
+                      대립과 토론의 재미를 느낄 수 있도록 만든 축구 팬 전용
+                      커뮤니티 서비스입니다.
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, JPA, Redis, Swift, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <!-- GitHub 아이콘 -->
+                        <a
+                          href="https://github.com/PerfectforRelegation"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- 일본어 (プロジェクト) -->
+          <div id="lang-ja-tech" class="lang-section hidden japanese-font">
+            <div class="max-w-5xl mx-auto px-4">
+              <div class="japanese-font text-center mb-8">
+                <div class="flex justify-center items-center gap-4">
+                  <h1 class="sm:text-[27px]">💻</h1>
+                  <h1
+                    class="sm:text-[40px] pb-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-sky-400"
+                  >
+                    Projects
+                  </h1>
+                  <h1 class="sm:text-[27px]">💻</h1>
+                </div>
+
+                <h2 class="text-2xl mt-4 text-gray-800">
+                  チームプロジェクトの一覧です
+                </h2>
+              </div>
+
+              <!-- グリッド -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-16 gap-8"
+              >
+                <!-- カード 1 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1dd4i9HC1gNnZEn6gK1j5TJ6kfLthWH95"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="text-lg font-semibold text-gray-900">
+                        コツコツ
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2025.06 ~ 2025.07
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span>4人</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「いつでも、どこでも、日本語をもっと身近に」<br />
+                      日本語を学びたい韓国人が時間・場所の制約なく学べるオンラインサービス。<br />
+                      学習者とチューターをつなぎ、リアルタイムのやり取り、<b>ビデオチャット</b>、コミュニティ機能を提供し、主体的な学習とスキル向上を支援します。
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, Spring Data JPA, Spring Security, MySQL,
+                        Redis, JavaScript, React, Tailwind css, Vite, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1HxTLX__NdrFOp9jDchUlOSqzjO39ztNR/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                        <a
+                          href="https://github.com/Globalin-IT-3Group"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- カード 2 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1KoE4D0SGiyC-ZCpj8S9jiQWEDMBTqEU8"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        140PAY
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.08 ~ 2024.09
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span>6人</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「証券を担保とした簡易信用決済サービス」<br />
+                      保有証券を担保に与信枠を設定し、QRコードで簡単決済を実現。<br />
+                      株式を売却せずに資金を柔軟に活用でき、利用額に応じて後払いが可能。<br />
+                      名称の「140」は担保維持率(140%)を意味し、安全性を示します。
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, Spring Data JPA, Spring Security, Spring
+                        Cloud, MySQL, Redis, Rabbit MQ, TypeScript, React,
+                        Tailwind css, Vite, FCM, PWA, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1XiryK2jjbBIIhBte0Lj9zbE5LY-rCWiH/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                        <a
+                          href="https://github.com/pda-pay"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- カード 3 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1vVq7VntT3njrMtI_Iwqd2HMhe5VTtWa-"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        Typer
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.05 ~ 2024.06
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span>5人</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「株式投資家のための投資日誌サービス」<br />
+                      財務諸表・アナリストレポート・前日終値などを<b>ブロック形式</b>で提供し、手間なく日誌作成が可能。<br />
+                      コミュニティで共有・議論しながらインサイトを得られます。
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500 min-h-16">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        JavaScript, Express.js, TypeScript, React, Tailwind css,
+                        Vite, Redux toolkit, mongoDB, Docker, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/150zHJvvavWrNUJIDS0Y0oxvtWDHkdtYE/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                        <a
+                          href="https://github.com/Typerproject"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- カード 4 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1yDSbK-mcQU7RIDh-b3nnsHlJ3O6XU3Nx"
+                    alt=""
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        On My Subway
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2024.05 ~ 2024.05
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span>4人</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">
+                      「地下鉄の座席情報共有サービス」<br />
+                      誰がいつ降りるかという情報をデータ化し、立つ/座る判断や情報の受け渡しを支援。<br />
+                      座席情報を共有して、より快適な移動を目指します。
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        JavaScript, Node.js, React, Vite, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1K47RzmzX1K6i8JNve1M4r_Cm5uZa3th_/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
+                            alt="PDF Icon"
+                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                        <a
+                          href="https://github.com/pda4Team7"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- カード 5 -->
+                <article
+                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1V5qNWlUq_K2rX74C0Ld-WJ7Z_g5Rt6ya"
+                    alt="プロジェクト画像"
+                    class="w-full h-40 object-cover"
+                  />
+                  <div class="p-5 flex flex-col flex-1">
+                    <div>
+                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
+                        Hooligans
+                      </h3>
+                      <span class="text-xs text-gray-500 flex gap-2">
+                        2023.09 ~ 2023.11
+                        <img
+                          class="w-4 h-4 ml-4"
+                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
+                        />
+                        <span>4人</span>
+                      </span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                      「EPLファンコミュニティサービス」<br />
+                      試合情報の取得や、ひとり観戦でも意見交換・議論の楽しさを味わえる、サッカーファン向けコミュニティです。
+                    </p>
+
+                    <div class="mt-auto pt-3">
+                      <p class="mt-3 text-xs text-gray-500">
+                        <span class="font-medium text-gray-700"
+                          >Tech stack :</span
+                        >
+                        Spring Boot, JPA, Redis, Swift, AWS
+                      </p>
+                      <div class="mt-4 flex items-center gap-3">
+                        <a
+                          href="https://github.com/PerfectforRelegation"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
+                        >
+                          <img
+                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                            alt="GitHub"
+                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t shadow-[0_-2px_10px_-5px_rgba(0,0,0,0.2)]">
+      <div
+        class="min-h-[120px] max-w-5xl mx-auto p-4 flex flex-col justify-center"
+      >
+        <div class="flex items-center justify-between">
+          <p
+            class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400"
+          >
+            PINGU
+          </p>
+          <div
+            class="ml-20 flex items-center font-semibold text-gray-500 gap-10"
+          >
+            <p class="comfortaa">📱 +8210-8403-1017</p>
+            <p class="comfortaa">📫 jody816@naver.com</p>
+          </div>
+          <div class="flex items-center justify-center gap-4 ml-4">
+            <a
+              href="https://github.com/jody816"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
+                alt="GitHub"
+                class="w-9 h-9 transition-transform duration-300 transform hover:scale-110"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/j.hyeo_0n/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2626/2626270.png"
+                alt="Instagram"
+                class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
+              />
+            </a>
+            <a
+              href="https://ozennn.tistory.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://i.namu.wiki/i/Jz0MFNR7_7LHx1Yda0Hy6929g3BD5fWmaARdUMMFPkFIAVC_ewY7BEcoIGhepmTKRBKmSxRSUBjI7pklIZLaAA.svg"
+                alt="tistory"
+                class="w-7 h-7 transition-transform duration-300 transform hover:scale-110"
+              />
+            </a>
+            <a
+              href="https://velog.io/@jody816/posts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://pbs.twimg.com/profile_images/1228368893321736193/Ov0og7E8_400x400.jpg"
+                alt="velog"
+                class="w-7 h-7 rounded-full transition-transform duration-300 transform hover:scale-110"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
