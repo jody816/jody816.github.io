@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -112,7 +112,7 @@
 
   <body class="bg-white text-black min-h-screen overflow-y-auto">
     <!-- Header -->
-    <header class="relative border-b shadow">
+    <header class="fixed top-0 left-0 w-full border-b shadow bg-white z-50">
       <div
         class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between"
       >
@@ -129,31 +129,31 @@
         <div
           class="hidden md:flex items-center justify-center gap-10 text-gray-500 font-semibold"
         >
-          <p
-            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
-          >
-            Home
-          </p>
-          <p
-            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
-          >
-            About
-          </p>
-          <p
-            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
-          >
-            Tech Stack
-          </p>
-          <p
-            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
-          >
-            Projects
-          </p>
-          <p
-            class="comfortaa hover:text-black transition duration-200 cursor-pointer"
-          >
-            Contact
-          </p>
+          <a
+            href="#me"
+            class="comfortaa hover:text-black transition duration-200"
+            >About me
+          </a>
+          <a
+            href="#education"
+            class="comfortaa hover:text-black transition duration-200"
+            >Education
+          </a>
+          <a
+            href="#tech"
+            class="comfortaa hover:text-black transition duration-200"
+            >Tech Stack
+          </a>
+          <a
+            href="#projects"
+            class="comfortaa hover:text-black transition duration-200"
+            >Projects
+          </a>
+          <a
+            href="#contact"
+            class="comfortaa hover:text-black transition duration-200"
+            >Contact
+          </a>
         </div>
         <!-- 언어 버튼 -->
         <div class="hidden md:flex items-center gap-2">
@@ -216,33 +216,38 @@
       <!-- 모바일 드롭다운 메뉴 (겹쳐서 아래에) -->
       <div
         id="mobileMenu"
-        class="absolute top-14 left-0 w-full bg-white z-50 hidden flex-col items-center gap-4 py-4 shadow-md border-t text-gray-500 font-semibold md:hidden"
+        class="absolute top-14 left-0 w-full bg-white z-50 hidden flex flex-col items-center gap-4 py-4 shadow-md border-t text-gray-500 font-semibold md:hidden"
       >
-        <p
+        <a
+          href="#me"
           class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
         >
-          Home
-        </p>
-        <p
+          About me
+        </a>
+        <a
+          href="#education"
           class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
         >
-          About
-        </p>
-        <p
+          Education
+        </a>
+        <a
+          href="#tech"
           class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
         >
           Tech Stack
-        </p>
-        <p
+        </a>
+        <a
+          href="#projects"
           class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
         >
           Projects
-        </p>
-        <p
+        </a>
+        <a
+          href="#contact"
           class="ml-4 comfortaa hover:text-black transition duration-200 cursor-pointer"
         >
           Contact
-        </p>
+        </a>
       </div>
     </header>
 
@@ -251,12 +256,13 @@
       <div>
         <!-- Profile 섹션 -->
         <section
-          class="max-w-7xl mx-auto h-auto flex flex-col md:flex-row items-center justify-between px-4 gap-8"
+          id="me"
+          class="scroll-mt-20 max-w-7xl mx-auto h-auto flex flex-col md:flex-row items-center justify-between px-4 gap-8"
         >
           <!-- 🇰🇷 한국어 -->
           <div id="lang-ko-profile" class="lang-section w-full md:w-1/2">
             <h1
-              class="text-[40px] sm:text-[48px] font-bold leading-snug korean-font"
+              class="text-[40px] sm:text-[48px] font-bold leading-snug korean-font text-center md:text-left"
             >
               안녕하세요 🙂‍↕️<br />
               저는
@@ -273,7 +279,7 @@
           <!-- 🇯🇵 일본어 -->
           <div id="lang-ja-profile" class="lang-section w-full md:w-1/2 hidden">
             <h1
-              class="text-[40px] sm:text-[48px] font-bold leading-snug japanese-font"
+              class="text-[33px] sm:text-[33px] font-bold leading-snug japanese-font text-center md:text-left"
             >
               こんにちは 🙂‍↕️,<br />
               私は
@@ -303,7 +309,7 @@
         </section>
 
         <!-- 에듀케이션 섹션 -->
-        <section class="mt-24" id="education">
+        <section id="education" class="mt-24 scroll-mt-20">
           <!-- 한국어 -->
           <div id="lang-ko-edu" class="lang-section korean-font">
             <div class="korean-font text-center mb-8">
@@ -421,7 +427,7 @@
         </section>
 
         <!-- Tech Stack 섹션 -->
-        <section class="mt-24">
+        <section id="tech" class="mt-24 scroll-mt-20">
           <!-- 한국어 -->
           <div id="lang-ko-tech" class="lang-section">
             <div class="korean-font text-center mb-8">
@@ -538,7 +544,7 @@
         </section>
 
         <!-- 프로젝트 섹션 -->
-        <section class="mt-24">
+        <section id="projects" class="mt-24 scroll-mt-20">
           <div id="lang-ko-tech" class="lang-section korean-font">
             <div class="max-w-5xl mx-auto px-4">
               <!-- 제목 -->
@@ -1267,7 +1273,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t shadow-[0_-2px_10px_-5px_rgba(0,0,0,0.2)]">
+    <footer
+      id="contact"
+      class="scroll-mt-20 border-t shadow-[0_-2px_10px_-5px_rgba(0,0,0,0.2)]"
+    >
       <div
         class="min-h-[120px] max-w-5xl mx-auto p-4 flex flex-col justify-center"
       >
