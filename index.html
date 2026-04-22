@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jody816.github.io</title>
+    <title>Jaehyeon Oh | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -17,7 +17,11 @@
       };
     </script>
     <script>
+      let currentLang = "ja";
+
       function showLang(lang) {
+        currentLang = lang;
+
         document
           .querySelectorAll(".lang-section")
           .forEach((el) => el.classList.add("hidden"));
@@ -549,7 +553,7 @@
 
         <!-- 프로젝트 섹션 -->
         <section id="projects" class="mt-24 scroll-mt-20">
-          <div id="lang-ko-tech" class="lang-section korean-font">
+          <div id="lang-ko-projects" class="lang-section korean-font">
             <div class="max-w-5xl mx-auto px-4">
               <!-- 제목 -->
               <div class="korean-font text-center mb-8">
@@ -566,6 +570,10 @@
                 <h2 class="text-2xl mt-4 text-gray-800">
                   제가 진행한 팀 프로젝트입니다
                 </h2>
+
+                <p class="mt-2 text-lg text-gray-500">
+                  🔎카드를 클릭하면 프로젝트 상세 내용을 확인할 수 있습니다!
+                </p>
               </div>
 
               <!-- 그리드 -->
@@ -574,7 +582,8 @@
               >
                 <!-- 카드 1 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="kotsukotsu"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1dd4i9HC1gNnZEn6gK1j5TJ6kfLthWH95"
@@ -599,12 +608,12 @@
 
                     <p class="mt-2 text-sm text-gray-600">
                       「언제 어디서나, 일본어를 더 가까이」<br />
-                      일본어를 배우고 싶은 한국인이 시간과 장소의 제약을 받지
-                      않고 온라인으로 학습할 수 있도록 설계된 서비스입니다.<br />
-                      단순한 언어 학습에 그치지 않고, 학습자와 일본어를 가르치고
-                      싶은 사람을 연결하고, 실시간 커뮤니케이션, 화상채팅,
-                      커뮤니티 활동을 통해, 주도적인 학습과 언어 능력의 향상을
-                      실현하는 것을 목표로 했습니다.
+                      일본어를 배우고 싶은 한국인이 시간과 장소의 제약 없이
+                      온라인으로 학습할 수 있도록 설계된 웹 서비스입니다.<br />단순한
+                      언어 학습에 그치지 않고, 일본어를 배우고 싶은 사람과
+                      가르치고 싶은 사람을 연결하여 실시간 화상 채팅과 커뮤니티
+                      기능을 제공함으로써, 주도적인 학습과 언어 능력 향상을
+                      지원합니다.
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -650,7 +659,8 @@
 
                 <!-- 카드 2 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="140pay"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1KoE4D0SGiyC-ZCpj8S9jiQWEDMBTqEU8"
@@ -673,12 +683,13 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600">
                       「증권 담보 간편 신용결제 서비스」<br />
-                      주식 투자를 계속하고 싶지만, 손에 있는 자금이 부족한
-                      투자자가, 보유하고 있는 증권을 매각하지 않고 자금을 활용할
-                      수 있도록 하는 것을 목표로 개발했습니다.<br />은행 및
-                      증권회사와의 제휴를 전제로, 증권을 담보로 하여 여신 한도를
-                      설정하고, 그 범위 내에서 QR코드 결제를 이용할 수 있도록
-                      설계했습니다.
+                      수중에 자금이 부족한 상황에서도 주식 투자를 지속하고 싶은
+                      투자자가, 보유한 증권을 매도하지 않고도 자금을 활용할 수
+                      있도록 설계된 금융 서비스입니다.<br />은행 및 증권사와의
+                      제휴를 전제로, 보유 증권을 담보로 신용한도를 설정하고 그
+                      한도 내에서 QR코드 결제를 이용할 수 있도록 함으로써,
+                      자산을 유지하면서도 보다 유연하게 자금을 활용할 수 있도록
+                      지원합니다.
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -725,7 +736,8 @@
 
                 <!-- 카드 3 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="typer"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1vVq7VntT3njrMtI_Iwqd2HMhe5VTtWa-"
@@ -748,12 +760,13 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600">
                       「주식 투자자를 위한 투자일지 서비스」<br />
-                      투자일지를 손쉽게 기록·공유할 수 있는 플랫폼이며,
-                      재무제표·애널리스트 리포트·종가 데이터 등을 노션과 같은
-                      블록 형식으로 제공함으로써, 편리하게 작성할 수 있도록
-                      했습니다.<br />서로 투자일지를 공유함으로써, 다른
-                      투자자들과 의견을 나누고 인사이트를 얻을 수 있는 것을
-                      목표로 했습니다.
+                      주식 투자자가 투자 일지를 손쉽게 기록하고 공유할 수 있도록
+                      설계된 커뮤니티형 투자 일지 서비스입니다.<br />재무제표,
+                      애널리스트 리포트, 전일 종가 등 투자에 필요한 자료를
+                      서비스 내에서 바로 불러와 블록 형식으로 활용할 수 있게
+                      하여, 사용자가 여러 정보를 따로 수집하고 정리하는 부담
+                      없이 투자 일지를 보다 편리하게 작성하고 다른 투자자와
+                      의견을 나누며 인사이트를 얻을 수 있도록 했습니다.
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -796,143 +809,12 @@
                     </div>
                   </div>
                 </article>
-
-                <!-- 카드 4 -->
-                <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1yDSbK-mcQU7RIDh-b3nnsHlJ3O6XU3Nx"
-                    alt=""
-                    class="w-full h-40 object-cover"
-                  />
-                  <div class="p-5 flex flex-col flex-1">
-                    <div>
-                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
-                        On My Subway
-                      </h3>
-                      <span class="text-xs text-gray-500 flex gap-2">
-                        2024.05 ~ 2024.05
-                        <img
-                          class="w-4 h-4 ml-4"
-                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
-                        />
-                        <span class="">4인</span>
-                      </span>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-600">
-                      「지하철 좌석 정보 공유 서비스」<br />
-                      이용자가 자신이 타고 있는 지하철의 좌석 정보를 확인하거나,
-                      자신의 좌석 정보나 하차 예정 정보를 제공함으로써 다른
-                      이용자와 정보를 공유할 수 있도록 한 서비스입니다.<br />이러한
-                      정보 공유를 통해 보다 편리한 이동을 지원하는 것을 목표로
-                      했습니다.
-                    </p>
-
-                    <div class="mt-auto pt-3">
-                      <p class="mt-3 text-xs text-gray-500">
-                        <span class="font-medium text-gray-700"
-                          >Tech stack :</span
-                        >
-                        JavaScript, Node.js, React, Vite, AWS
-                      </p>
-                      <div class="mt-4 flex items-center gap-3">
-                        <!-- PDF 아이콘 버튼 -->
-                        <a
-                          href="https://drive.google.com/file/d/1K47RzmzX1K6i8JNve1M4r_Cm5uZa3th_/view?usp=sharing"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
-                            alt="PDF Icon"
-                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-
-                        <!-- GitHub 아이콘 -->
-                        <a
-                          href="https://github.com/pda4Team7"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
-                            alt="GitHub"
-                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-
-                <!-- 카드 5 -->
-                <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1V5qNWlUq_K2rX74C0Ld-WJ7Z_g5Rt6ya"
-                    alt="프로젝트 미리보기 이미지"
-                    class="w-full h-40 object-cover"
-                  />
-                  <div class="p-5 flex flex-col flex-1">
-                    <div>
-                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
-                        Hooligans
-                      </h3>
-                      <span class="text-xs text-gray-500 flex gap-2">
-                        2023.09 ~ 2023.11
-                        <img
-                          class="w-4 h-4 ml-4"
-                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
-                        />
-                        <span class="">4인</span>
-                      </span>
-                    </div>
-
-                    <p class="mt-2 text-sm text-gray-600 leading-relaxed">
-                      「EPL 팬 커뮤니티 서비스」<br />
-                      팀 프로젝트로 개발한 축구 팬 전용 커뮤니티
-                      서비스입니다.<br />
-                      EPL 경기 정보를 확인할 수 있을 뿐 아니라, 혼자 경기를 볼
-                      때에도 다른 사용자와 의견 교환이나 토론을 즐길 수 있도록
-                      설계했습니다.
-                    </p>
-
-                    <div class="mt-auto pt-3">
-                      <p class="mt-3 text-xs text-gray-500">
-                        <span class="font-medium text-gray-700"
-                          >Tech stack :</span
-                        >
-                        Spring Boot, JPA, Redis, Swift, AWS
-                      </p>
-                      <div class="mt-4 flex items-center gap-3">
-                        <!-- GitHub 아이콘 -->
-                        <a
-                          href="https://github.com/PerfectforRelegation"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
-                            alt="GitHub"
-                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
               </div>
             </div>
           </div>
 
           <!-- 일본어 (プロジェクト) -->
-          <div id="lang-ja-tech" class="lang-section hidden japanese-font">
+          <div id="lang-ja-projects" class="lang-section hidden japanese-font">
             <div class="max-w-5xl mx-auto px-4">
               <div class="japanese-font text-center mb-8">
                 <div class="flex justify-center items-center gap-4">
@@ -948,6 +830,10 @@
                 <h2 class="text-2xl mt-4 text-gray-800">
                   チームプロジェクトの一覧です
                 </h2>
+
+                <p class="mt-2 text-lg text-gray-500">
+                  🔎カードをクリックすると、プロジェクトの詳細をご覧いただけます！
+                </p>
               </div>
 
               <!-- グリッド -->
@@ -956,7 +842,8 @@
               >
                 <!-- カード 1 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="kotsukotsu"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1dd4i9HC1gNnZEn6gK1j5TJ6kfLthWH95"
@@ -979,8 +866,8 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600">
                       「いつでも、どこでも、日本語をもっと身近に」<br />
-                      日本語を学びたい韓国人が、時間や場所の制約を受けずにオンラインで学習できるよう設計されたサービスです。<br />
-                      単なる言語学習にとどまらず、学習者と日本語を教えたい人をつなぎ、リアルタイムでのコミュニケーション、ビデオチャット、コミュニティ活動を通して、主体的な学習と言語能力の向上を実現することを目指しました。
+                      日本語を学びたい韓国人が、時間や場所にとらわれずオンラインで学習できるように設計したウェブサービスです。<br />
+                      単なる語学学習にとどまらず、日本語を学びたい人と教えたい人をつなぎ、リアルタイムのビデオチャットやコミュニティ機能を提供することで、主体的な学習と日本語能力の向上を支援します。
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -1023,7 +910,8 @@
 
                 <!-- カード 2 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="140pay"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1KoE4D0SGiyC-ZCpj8S9jiQWEDMBTqEU8"
@@ -1046,8 +934,8 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600">
                       「証券を担保とした簡易信用決済サービス」<br />
-                      株式投資を続けたいものの、手元資金が不足している投資家が、保有する証券を売却せずに資金を活用できるようにすることを目的として開発したサービスです。<br />
-                      銀行および証券会社との提携を前提に、証券を担保として与信枠を設定し、その範囲内でQRコード決済を利用できる仕組みとして設計しました。
+                      手元資金が不足している状況でも株式投資を継続したい投資家が、保有する証券を売却せずに資金を活用できるように設計した金融サービスです。<br />
+                      銀行および証券会社との提携を前提に、保有証券を担保として与信枠を設定し、その範囲内でQRコード決済を利用できるようにすることで、資産を維持しながら、より柔軟に資金を活用できるよう支援します。
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -1091,7 +979,8 @@
 
                 <!-- カード 3 -->
                 <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  class="project-card flex flex-col h-full bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+                  data-project-id="typer"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/d/1vVq7VntT3njrMtI_Iwqd2HMhe5VTtWa-"
@@ -1114,8 +1003,8 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600">
                       「株式投資家のための投資日誌サービス」<br />
-                      投資日誌を手軽に記録・共有できるプラットフォームであり、財務諸表・アナリストレポート・終値データなどをNotionのようなブロック形式で提供することで、便利に作成できるようにしました。<br />
-                      互いに投資日誌を共有することで、他の投資家と意見を交わし、インサイトを得られることを目指しました。
+                      株式投資家が投資日誌を手軽に記録・共有できるように設計したコミュニティ型の投資日誌サービスです。<br />
+                      財務諸表やアナリストレポート、前日終値など、投資に必要な情報をサービス内で直接呼び出し、ブロック形式で活用できるようにすることで、ユーザーが複数の情報を別々に収集・整理することなく、投資日誌をより便利に作成し、ほかの投資家と意見を交わしながらインサイトを得られるようにしました。
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -1141,126 +1030,6 @@
                         </a>
                         <a
                           href="https://github.com/Typerproject"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
-                            alt="GitHub"
-                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-
-                <!-- カード 4 -->
-                <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1yDSbK-mcQU7RIDh-b3nnsHlJ3O6XU3Nx"
-                    alt=""
-                    class="w-full h-40 object-cover"
-                  />
-                  <div class="p-5 flex flex-col flex-1">
-                    <div>
-                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
-                        On My Subway
-                      </h3>
-                      <span class="text-xs text-gray-500 flex gap-2">
-                        2024.05 ~ 2024.05
-                        <img
-                          class="w-4 h-4 ml-4"
-                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
-                        />
-                        <span>4人</span>
-                      </span>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-600">
-                      「地下鉄の座席情報共有サービス」<br />
-                      利用者が、自分の乗っている地下鉄の座席情報を確認し、自分の座席情報や下車予定情報を共有できるサービスです。<br />
-                      利用者同士で情報を共有することで、より便利な移動を実現することを目指しました。
-                    </p>
-
-                    <div class="mt-auto pt-3">
-                      <p class="mt-3 text-xs text-gray-500">
-                        <span class="font-medium text-gray-700"
-                          >Tech stack :</span
-                        >
-                        JavaScript, Node.js, React, Vite, AWS
-                      </p>
-                      <div class="mt-4 flex items-center gap-3">
-                        <a
-                          href="https://drive.google.com/file/d/1K47RzmzX1K6i8JNve1M4r_Cm5uZa3th_/view?usp=sharing"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://img.icons8.com/ios-filled/50/pdf-2--v1.png"
-                            alt="PDF Icon"
-                            class="w-6 h-6 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-                        <a
-                          href="https://github.com/pda4Team7"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
-                        >
-                          <img
-                            src="https://images.icon-icons.com/2406/PNG/512/github_git_icon_145985.png"
-                            alt="GitHub"
-                            class="w-8 h-8 transition-transform duration-300 transform hover:scale-110"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-
-                <!-- カード 5 -->
-                <article
-                  class="bg-white rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 hover:shadow-xl"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1V5qNWlUq_K2rX74C0Ld-WJ7Z_g5Rt6ya"
-                    alt="プロジェクト画像"
-                    class="w-full h-40 object-cover"
-                  />
-                  <div class="p-5 flex flex-col flex-1">
-                    <div>
-                      <h3 class="comfortaa text-lg font-semibold text-gray-900">
-                        Hooligans
-                      </h3>
-                      <span class="text-xs text-gray-500 flex gap-2">
-                        2023.09 ~ 2023.11
-                        <img
-                          class="w-4 h-4 ml-4"
-                          src="https://img.icons8.com/?size=100&id=85369&format=png&color=000000"
-                        />
-                        <span>4人</span>
-                      </span>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-600 leading-relaxed">
-                      「EPLファンコミュニティサービス」<br />
-                      チームプロジェクトで開発した、サッカーファン向けのコミュニティサービスです。<br />
-                      EPLの試合情報を確認できるほか、一人で試合を観る時でも他のユーザーと意見交換や議論を楽しめるよう設計しました。
-                    </p>
-
-                    <div class="mt-auto pt-3">
-                      <p class="mt-3 text-xs text-gray-500">
-                        <span class="font-medium text-gray-700"
-                          >Tech stack :</span
-                        >
-                        Spring Boot, JPA, Redis, Swift, AWS
-                      </p>
-                      <div class="mt-4 flex items-center gap-3">
-                        <a
-                          href="https://github.com/PerfectforRelegation"
                           target="_blank"
                           rel="noopener noreferrer"
                           class="inline-flex items-center transition-all hover:bg-gray-100 rounded-md"
@@ -1351,5 +1120,497 @@
         </div>
       </div>
     </footer>
+
+    <!-- Project Modal -->
+    <div
+      id="projectModal"
+      class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/0 px-4 py-6 transition-all duration-300"
+    >
+      <div
+        id="projectModalPanel"
+        class="relative w-full max-w-4xl h-[90vh] overflow-hidden overscroll-contain rounded-3xl border border-white/60 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.18)] opacity-0 scale-95 transition-all duration-300"
+      >
+        <button
+          id="modalCloseBtn"
+          type="button"
+          class="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-gray-50 text-[28px] text-gray-500 transition hover:bg-gray-100 hover:text-gray-800"
+          aria-label="닫기"
+        >
+          <span class="block leading-none -translate-y-[3px]">×</span>
+        </button>
+
+        <div id="modalInner" class="flex h-full flex-col">
+          <!-- 상단 고정 영역 -->
+          <div
+            class="shrink-0 border-b border-gray-100 px-6 pt-6 pb-5 sm:px-8 sm:pt-8 sm:pb-6"
+          >
+            <div class="pr-12">
+              <p
+                id="modalBadge"
+                class="inline-block rounded-full bg-gradient-to-r from-purple-100 to-sky-100 px-3 py-1 text-xs font-semibold text-gray-600"
+              >
+                PROJECT DETAIL
+              </p>
+
+              <h2
+                id="modalTitle"
+                class="mt-4 text-3xl font-bold text-gray-900"
+              ></h2>
+            </div>
+          </div>
+
+          <!-- 여기만 스크롤 -->
+          <div class="flex-1 overflow-y-auto px-6 py-6 sm:px-8 sm:py-7">
+            <div class="space-y-8 text-[15px] leading-8 text-gray-700">
+              <section class="rounded-2xl bg-gray-50 p-5">
+                <h3
+                  id="modalSectionBasic"
+                  class="text-lg font-semibold text-gray-900"
+                >
+                  基本情報
+                </h3>
+                <div class="mt-4 space-y-3">
+                  <p>
+                    <span id="modalLabelOrg" class="font-semibold text-gray-900"
+                      >教育機関</span
+                    ><br />
+                    <span id="modalOrg"></span>
+                  </p>
+                  <p>
+                    <span
+                      id="modalLabelPeriod"
+                      class="font-semibold text-gray-900"
+                      >期間</span
+                    ><br />
+                    <span id="modalPeriod"></span>
+                  </p>
+                  <p>
+                    <span
+                      id="modalLabelTech"
+                      class="font-semibold text-gray-900"
+                      >使用技術</span
+                    ><br />
+                    <span id="modalTech"></span>
+                  </p>
+                </div>
+              </section>
+
+              <section class="rounded-2xl bg-gray-50 p-5">
+                <h3
+                  id="modalSectionRoles"
+                  class="text-lg font-semibold text-gray-900"
+                >
+                  担当・役割
+                </h3>
+                <ul id="modalRoles" class="mt-3 list-disc pl-5 space-y-2"></ul>
+              </section>
+
+              <section class="rounded-2xl bg-gray-50 p-5">
+                <h3
+                  id="modalSectionChallenges"
+                  class="text-lg font-semibold text-gray-900"
+                >
+                  課題と対応
+                </h3>
+                <div id="modalChallenges" class="mt-4 space-y-5"></div>
+              </section>
+
+              <section class="rounded-2xl bg-gray-50 p-5">
+                <h3
+                  id="modalSectionLinks"
+                  class="text-lg font-semibold text-gray-900"
+                >
+                  参考URL
+                </h3>
+                <div id="modalLinks" class="mt-3 flex flex-col gap-2"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const projectCards = document.querySelectorAll(".project-card");
+      const projectModal = document.getElementById("projectModal");
+      const projectModalPanel = document.getElementById("projectModalPanel");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+      const modalTitle = document.getElementById("modalTitle");
+      const modalOrg = document.getElementById("modalOrg");
+      const modalPeriod = document.getElementById("modalPeriod");
+      const modalTech = document.getElementById("modalTech");
+      const modalContent = document.getElementById("modalContent");
+      const modalRoles = document.getElementById("modalRoles");
+      const modalChallenges = document.getElementById("modalChallenges");
+      const modalLinks = document.getElementById("modalLinks");
+
+      const modalInner = document.getElementById("modalInner");
+      const modalBadge = document.getElementById("modalBadge");
+
+      const modalSectionBasic = document.getElementById("modalSectionBasic");
+      const modalLabelOrg = document.getElementById("modalLabelOrg");
+      const modalLabelPeriod = document.getElementById("modalLabelPeriod");
+      const modalLabelTech = document.getElementById("modalLabelTech");
+
+      const modalSectionRoles = document.getElementById("modalSectionRoles");
+      const modalSectionChallenges = document.getElementById(
+        "modalSectionChallenges",
+      );
+      const modalSectionLinks = document.getElementById("modalSectionLinks");
+
+      function setModalLanguage() {
+        modalInner.classList.remove("korean-font", "japanese-font");
+
+        if (currentLang === "ko") {
+          modalInner.classList.add("korean-font");
+
+          modalCloseBtn.setAttribute("aria-label", "닫기");
+          modalBadge.textContent = "PROJECT DETAIL";
+
+          modalSectionBasic.textContent = "기본 정보";
+          modalLabelOrg.textContent = "부트캠프";
+          modalLabelPeriod.textContent = "기간";
+          modalLabelTech.textContent = "사용 기술";
+
+          modalSectionRoles.textContent = "담당·역할";
+          modalSectionChallenges.textContent = "공들인 점·과제와 대응";
+          modalSectionLinks.textContent = "관련 링크";
+        } else {
+          modalInner.classList.add("japanese-font");
+
+          modalCloseBtn.setAttribute("aria-label", "閉じる");
+          modalBadge.textContent = "PROJECT DETAIL";
+
+          modalSectionBasic.textContent = "基本情報";
+          modalLabelOrg.textContent = "教育機関";
+          modalLabelPeriod.textContent = "期間";
+          modalLabelTech.textContent = "使用技術";
+
+          modalSectionRoles.textContent = "担当・役割";
+          modalSectionChallenges.textContent = "工夫した点・課題と対応";
+          modalSectionLinks.textContent = "参考URL";
+        }
+      }
+
+      function openModal(card) {
+        const projectId = card.dataset.projectId;
+        const project = projectDetails[projectId]?.[currentLang];
+
+        if (!project) return;
+
+        setModalLanguage();
+
+        modalTitle.textContent = project.title;
+        modalOrg.textContent = project.org;
+        modalPeriod.textContent = project.period;
+        modalTech.textContent = project.tech;
+
+        modalRoles.innerHTML = "";
+        project.roles.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          modalRoles.appendChild(li);
+        });
+
+        modalChallenges.innerHTML = "";
+        project.challenges.forEach((item) => {
+          const wrapper = document.createElement("div");
+
+          const title = document.createElement("h4");
+          title.className = "font-semibold text-gray-900";
+          title.textContent = item.title;
+
+          const body = document.createElement("p");
+          body.className = "mt-2 whitespace-pre-line";
+          body.textContent = item.body;
+
+          wrapper.appendChild(title);
+          wrapper.appendChild(body);
+          modalChallenges.appendChild(wrapper);
+        });
+
+        modalLinks.innerHTML = "";
+        project.links.forEach((link) => {
+          const a = document.createElement("a");
+          a.href = link.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.className =
+            "text-sky-600 hover:text-sky-700 hover:underline break-all";
+          a.textContent = `${link.label}：${link.url}`;
+          modalLinks.appendChild(a);
+        });
+
+        projectModal.dataset.projectId = projectId;
+
+        projectModal.classList.remove("hidden");
+        projectModal.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+
+        requestAnimationFrame(() => {
+          projectModal.classList.remove("bg-black/0");
+          projectModal.classList.add("bg-black/60");
+
+          projectModalPanel.classList.remove("opacity-0", "scale-95");
+          projectModalPanel.classList.add("opacity-100", "scale-100");
+        });
+      }
+
+      function closeModal() {
+        projectModal.classList.remove("bg-black/60");
+        projectModal.classList.add("bg-black/0");
+
+        projectModalPanel.classList.remove("opacity-100", "scale-100");
+        projectModalPanel.classList.add("opacity-0", "scale-95");
+
+        setTimeout(() => {
+          projectModal.classList.add("hidden");
+          projectModal.classList.remove("flex");
+          document.body.classList.remove("overflow-hidden");
+        }, 300);
+      }
+
+      projectCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest("a")) return;
+          openModal(card);
+        });
+      });
+
+      modalCloseBtn.addEventListener("click", closeModal);
+
+      projectModal.addEventListener("click", (e) => {
+        if (e.target === projectModal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !projectModal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    </script>
+
+    <script>
+      const projectDetails = {
+        kotsukotsu: {
+          ko: {
+            title: "코츠코츠",
+            org: "Global In 해외취업교육센터",
+            period: "2025년 6월 ~ 2025년 7월 (1개월)",
+            tech: "Spring Boot / JPA / Spring Security / MySQL / Redis / React / AWS (EC2, S3, CloudFront, Route53) / GitHub Actions",
+            roles: [
+              "팀 리더로서 팀원을 지원하며 프로젝트 전체 진행을 관리",
+              "WebRTC 기반 실시간 화상 채팅 기능 구현",
+              "단어 학습용 기능(단어장) 및 Markdown 형식 게시판 구현",
+              "프론트엔드 컴포넌트 설계 및 화면 구현",
+              "AWS 기반 인프라 구축, 배포, 자동 배포 파이프라인 정비",
+            ],
+            challenges: [
+              {
+                title: "1. 개발 경험이 없는 팀원을 위한 학습 및 개발 체계 마련",
+                body: "저를 제외한 다른 팀원들은 모두 개발 경험이 없었기 때문에, 팀 리더로서 개발에 들어가기 전 학습 지원과 개발 체계 마련에 힘썼습니다.\n구체적으로는 개발 도구 사용법을 설명하고, 기술 블로그를 작성해 공유했으며, 실습을 통해 간단한 기능을 직접 만들어보는 방식으로 이해를 높일 수 있도록 지원했습니다.\n또한 각 팀원의 이해도와 희망에 맞춰 역할을 분담하고, 개별적으로 피드백을 제공함으로써 팀 전체가 원활하게 개발을 진행할 수 있도록 노력했습니다.",
+              },
+              {
+                title: "2. WebRTC 기능의 배포 환경 개선",
+                body: "WebRTC 기반 비디오 채팅 기능은 로컬 환경에서는 문제없이 동작했지만, 실제 배포 환경에서는 연결이 불안정해지는 문제가 있었습니다.\n이에 HTTPS 환경을 정비하는 것에 더해, 네트워크 환경에 따라 연결 후보의 확보와 통신 경로 수립에 영향이 생길 수 있다는 점을 바탕으로 STUN 서버를 설정했고, 배포 환경에서의 연결성을 개선하고자 했습니다.",
+              },
+              {
+                title: "3. AWS 기반 배포 환경 및 자동 배포 파이프라인 정비",
+                body: "AWS를 이용해 애플리케이션 배포 환경을 구축하고, GitHub Actions를 활용해 자동 배포가 가능하도록 정비했습니다.\n이를 통해 코드 변경 후 반영 작업을 효율화하고, 지속적으로 개발과 개선을 진행하기 쉬운 환경을 마련했습니다.",
+              },
+            ],
+            links: [
+              {
+                label: "BE",
+                url: "https://github.com/Globalin-IT-3Group/backend-example",
+              },
+              {
+                label: "FE",
+                url: "https://github.com/Globalin-IT-3Group/frontend",
+              },
+            ],
+          },
+          ja: {
+            title: "コツコツ",
+            org: "Global In 海外就職教育センター（ITスクール）",
+            period: "2025年6月～2025年7月（1ヵ月）",
+            tech: "Spring Boot / JPA / Spring Security / MySQL / Redis / React / AWS（EC2、S3、CloudFront、Route53）/ GitHub Actions",
+            roles: [
+              "チームリーダーとして、メンバーを支援しながら、プロジェクト全体の進行を管理",
+              "WebRTCを用いたリアルタイムビデオチャット機能の実装",
+              "単語学習向け機能（単語帳）およびMarkdown形式の掲示板の実装",
+              "フロントエンドにおけるコンポーネント設計および画面実装",
+              "AWSを用いたインフラ構築、デプロイ、自動デプロイパイプラインの整備",
+            ],
+            challenges: [
+              {
+                title:
+                  "1. 開発未経験メンバーを支えるための学習・開発体制づくり",
+                body: "私以外のメンバーは全員、開発未経験だったため、チームリーダーとして、開発に入る前の学習支援と開発体制づくりに力を入れました。\n具体的には、開発ツールの使い方を説明したり、技術ブログを作成して共有したり、実習を通して簡単な機能を直接作ってみる形で理解を深められるよう支援しました。\nまた、各メンバーの理解度や希望に応じて役割を分担し、個別にフィードバックを行うことで、チーム全体で円滑に開発を進められるよう努めました。",
+              },
+              {
+                title: "2. WebRTC機能のデプロイ環境での改善",
+                body: "WebRTCによるビデオチャット機能は、ローカル環境では問題なく動作していた一方で、実際のデプロイ環境では接続が不安定になる課題がありました。\nそこで、HTTPS環境の整備に加え、ネットワーク環境によって接続候補の取得や通信経路の確立に影響が出ることを踏まえ、STUNサーバーを設定し、デプロイ環境での接続性の改善を図りました。",
+              },
+              {
+                title:
+                  "3. AWSを用いたデプロイ環境と自動デプロイパイプラインの整備",
+                body: "AWSを用いてアプリケーションのデプロイ環境を構築し、GitHub Actionsを活用して自動デプロイできるように整備しました。\nこれにより、コード変更後の反映作業を効率化し、継続的に開発・改善を進めやすい環境を整えました。",
+              },
+            ],
+            links: [
+              {
+                label: "BE",
+                url: "https://github.com/Globalin-IT-3Group/backend-example",
+              },
+              {
+                label: "FE",
+                url: "https://github.com/Globalin-IT-3Group/frontend",
+              },
+            ],
+          },
+        },
+
+        "140pay": {
+          ko: {
+            title: "140PAY",
+            org: "신한투자증권 프로디지털 아카데미",
+            period: "2024년 8월 ~ 2024년 9월 (1개월)",
+            tech: "Spring Boot / Spring Security / Spring Cloud / JPA / MySQL / Redis / RabbitMQ / React (TypeScript) / AWS",
+            roles: [
+              "백엔드 담당으로서 QR코드 결제 기능 및 중도상환(선상환) 기능 구현",
+              "Redis 및 RabbitMQ를 활용한 데이터 연동과 비동기 처리 구현",
+              "은행 및 증권사를 가정한 API 서버 설계 및 구축",
+              "SSE를 이용해 서버에서 발생한 이벤트 로그를 프론트엔드로 실시간 전송하는 기능 구현",
+            ],
+            challenges: [
+              {
+                title: "1. 더미 API 서버 구축",
+                body: "한국의 마이데이터를 통해 취득할 수 있는 은행 계좌 정보와 보유 증권 정보 등 금융 데이터를 다룬다는 전제였지만, 실제로 사용할 수 있는 외부 API가 없었기 때문에 은행 및 증권사를 가정한 더미 API 서버를 설계·구축했습니다.\n이 서버는 메인 서버와의 연동을 전제로, 요청에 따라 필요한 증권 데이터를 반환할 수 있도록 설계했습니다.",
+              },
+              {
+                title: "2. 실시간 QR코드 결제 기능의 설계 및 구현",
+                body: "가맹점 결제를 안전하고 안정적으로 처리할 수 있도록, 2차 비밀번호 확인과 Redis 상의 토큰을 이용한 세션 관리를 적용해 백엔드를 설계했습니다.\n또한 동시 접근 상황에서도 안정적으로 처리할 수 있도록 스레드 풀을 이용해 병렬 처리를 제어했습니다.",
+              },
+              {
+                title: "3. 중도상환 기능 구현",
+                body: "중도상환 기능은 조건 분기가 복잡했고, 예외 처리와 트랜잭션 관리까지 포함해 안정적으로 동작하도록 설계·구현할 필요가 있었습니다.\n이에 상환 시 예상되는 케이스를 하나씩 정리하고, 데이터 정합성을 유지할 수 있도록 처리 순서와 예외 발생 시 흐름을 고려하며 구현을 진행했습니다.\n또한 메서드명과 변수명도 최대한 직관적으로 정리하고, 각 케이스별 동작을 확인하면서 개발을 진행함으로써 안정성과 유지보수성 향상을 위해 노력했습니다.",
+              },
+              {
+                title: "4. RabbitMQ와 SSE를 활용한 실시간 로그 전송 기능 구현",
+                body: "MSA 구조에서 RabbitMQ의 Publisher 설정을 수행하고, 각 서비스에서 발생한 이벤트를 RabbitMQ를 통해 알림 서비스로 전송하는 구조를 구현했습니다.\n또한 알림 서비스에서 수신한 이벤트 로그를 SSE를 이용해 프론트엔드에 실시간으로 전송할 수 있도록 하여, 관리자 화면에서 각 서비스의 로그를 확인할 수 있게 했습니다.",
+              },
+            ],
+            links: [{ label: "URL", url: "https://github.com/pda-pay" }],
+          },
+          ja: {
+            title: "140PAY",
+            org: "新韓投資証券プロデジタルアカデミー（ITスクール）",
+            period: "2024年8月～2024年9月（1ヵ月）",
+            tech: "Spring Boot / Spring Security / Spring Cloud / JPA / MySQL / Redis / RabbitMQ / React（TypeScript）/ AWS",
+            roles: [
+              "バックエンド担当として、QRコード決済機能および繰り上げ返済機能の実装",
+              "RedisおよびRabbitMQを用いたデータ連携・非同期処理の実装",
+              "銀行および証券会社を模したAPIサーバーの設計・構築",
+              "SSEを用いて、サーバー上で発生したイベントログをフロントエンドへリアルタイムに配信する機能の実装",
+            ],
+            challenges: [
+              {
+                title: "1. ダミーAPIサーバーの構築",
+                body: `韓国のマイデータを通じて取得できる銀行口座情報や保有証券情報などの金融データを扱う前提でしたが、実際に利用できる外部APIがなかったため、銀行および証券会社を模したダミーAPIサーバーを設計・構築しました。
+このサーバーでは、メインサーバーとの連携を想定し、必要な証券データをリクエストに応じて返却できるよう設計しました。`,
+              },
+              {
+                title: "2. リアルタイムQRコード決済機能の設計・実装",
+                body: `加盟店での決済を安全かつ安定的に処理できるよう、二次パスワードの確認やRedis上のトークンを用いたセッション管理を取り入れてバックエンドを設計しました。
+また、同時アクセス時にも安定して処理できるよう、スレッドプールを用いて並行処理を制御しました。`,
+              },
+              {
+                title: "3. 繰り上げ返済機能の実装",
+                body: `繰り上げ返済機能では、条件分岐が複雑で、例外処理やトランザクション管理も含めて安定して動作するよう設計・実装する必要がありました。
+そこで、返済時に想定されるケースを一つずつ整理し、データの整合性を保てるよう、処理順序や例外発生時の流れを意識して実装を進めました。
+また、メソッド名や変数名もできるだけ直感的に整理し、各ケースでの動作を確認しながら開発を進めることで、安定性と保守性の向上に努めました。`,
+              },
+              {
+                title: "4. RabbitMQとSSEを用いたリアルタイムログ配信機能の実装",
+                body: `MSA構成においてRabbitMQのPublisher設定を行い、各サービスで発生したイベントをRabbitMQ経由で通知サービスへ送信する仕組みを実装しました。
+さらに、通知サービスで受信したイベントログをSSEを用いてフロントエンドへリアルタイムに配信できるようにし、管理者画面上で各サービスのログを確認できるようにしました。`,
+              },
+            ],
+            links: [{ label: "URL", url: "https://github.com/pda-pay" }],
+          },
+        },
+
+        typer: {
+          ko: {
+            title: "Typer",
+            org: "신한투자증권 프로디지털 아카데미",
+            period: "2024년 5월 ~ 2024년 6월 (1개월)",
+            tech: "JavaScript / Express.js / MongoDB / TypeScript / React / Tailwind CSS / Vite / Redux Toolkit / Docker / AWS (EC2, S3) / GitHub Actions",
+            roles: [
+              "팀원으로서 담당 기능에 대해 프론트엔드와 백엔드를 모두 개발",
+              "OAuth2.0(Kakao) 기반 로그인 기능 구현",
+              "OpenAPI로부터 취득한 증권 데이터를 그래프로 시각화하는 기능 구현",
+              "메인 페이지 및 마이페이지 구현",
+            ],
+            challenges: [
+              {
+                title: "1. OAuth2.0(Kakao) 로그인 기능 구현",
+                body: `OAuth2.0 기반 로그인 기능은 공식 문서를 참고하며 구현을 진행했습니다.
+또한 팀 내에서 관련 기능 개발 경험이 있는 멤버에게 조언을 받으며 구현을 진행했습니다.
+인증 후에는 JWT를 발행하고 Cookie에 저장함으로써 로그인 상태를 유지할 수 있도록 했습니다.`,
+              },
+              {
+                title: "2. 증권 데이터 시각화 기능과 Editor.js 활용",
+                body: `증권사 OpenAPI에서 취득한 증권 데이터를 라이브러리를 활용해 그래프로 시각화했습니다.
+또한 Notion처럼 "/" 입력으로 블록을 추가할 수 있는 형식을 구현하기 위해 Editor.js라는 라이브러리를 새롭게 학습했고, 그래프를 블록 형태로 표시할 수 있도록 구현했습니다.
+추가로 사용 방법과 활용 방식을 정리해 팀원들에게도 공유했습니다.`,
+              },
+              {
+                title: "3. 화면 구현과 최종 단계 개선 대응",
+                body: `메인 페이지와 마이페이지는 프론트엔드와 백엔드를 모두 담당하여 구현했습니다.
+또한 팀원들과 협력하며 반응형 대응과 CSS 조정을 진행했고, 잘못된 입력이나 부자연스러운 날짜 범위를 방지하기 위한 검증 로직도 추가했습니다.
+최종적으로는 세부적인 버그까지 확인하고 수정하면서 프로젝트 전체의 완성도를 높였습니다.`,
+              },
+            ],
+            links: [{ label: "URL", url: "https://github.com/Typerproject" }],
+          },
+          ja: {
+            title: "Typer",
+            org: "新韓投資証券プロデジタルアカデミー（ITスクール）",
+            period: "2024年5月～2024年6月（1ヵ月）",
+            tech: "JavaScript / Express.js / MongoDB / TypeScript / React / Tailwind CSS / Vite / Redux Toolkit / Docker / AWS（EC2、S3）/ GitHub Actions",
+            roles: [
+              "チームメンバーとして、担当機能についてフロントエンドとバックエンドの両方を開発",
+              "OAuth2.0（Kakao）によるログイン機能の実装",
+              "OpenAPIから取得した証券データをグラフとして可視化する機能の実装",
+              "メインページおよびマイページの実装",
+            ],
+            challenges: [
+              {
+                title: "1. OAuth2.0（Kakao）ログイン機能の実装",
+                body: `OAuth2.0によるログイン機能については、公式ドキュメントを参考にしながら実装に取り組みました。
+また、チーム内に関連機能の開発経験があるメンバーからアドバイスを受けながら実装を進めました。
+認証後はJWTを発行し、Cookieに保存することでログイン状態を維持できるようにしました。`,
+              },
+              {
+                title: "2. 証券データの可視化機能とEditor.jsの活用",
+                body: `証券会社のOpenAPIから取得した証券データを、ライブラリを用いてグラフとして可視化しました。
+また、Notionのように「/」入力でブロックを追加できる形式を実現するため、Editor.jsというライブラリを新たに学習し、グラフをブロックとして表示できるよう実装しました。
+さらに、使い方や活用方法を整理してチームメンバーにも共有しました。`,
+              },
+              {
+                title: "3. 画面実装と最終段階での改善対応",
+                body: `メインページとマイページについては、フロントエンドとバックエンドの両方を担当して実装しました。
+加えて、チームメンバーと協力しながらレスポンシブ対応やCSSの調整を進め、不正な入力や不自然な日付範囲を防ぐためのバリデーションを追加しました。
+最終的には、細かい不具合も確認・修正しながら、プロジェクト全体の完成度を高めました。`,
+              },
+            ],
+            links: [{ label: "URL", url: "https://github.com/Typerproject" }],
+          },
+        },
+      };
+    </script>
   </body>
 </html>
