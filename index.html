@@ -1160,7 +1160,10 @@
           </div>
 
           <!-- 여기만 스크롤 -->
-          <div class="flex-1 overflow-y-auto px-6 py-6 sm:px-8 sm:py-7">
+          <div
+            id="modalScrollArea"
+            class="flex-1 overflow-y-auto px-6 py-6 sm:px-8 sm:py-7"
+          >
             <div class="space-y-8 text-[15px] leading-8 text-gray-700">
               <section class="rounded-2xl bg-gray-50 p-5">
                 <h3
@@ -1240,7 +1243,6 @@
       const modalOrg = document.getElementById("modalOrg");
       const modalPeriod = document.getElementById("modalPeriod");
       const modalTech = document.getElementById("modalTech");
-      const modalContent = document.getElementById("modalContent");
       const modalRoles = document.getElementById("modalRoles");
       const modalChallenges = document.getElementById("modalChallenges");
       const modalLinks = document.getElementById("modalLinks");
@@ -1258,6 +1260,8 @@
         "modalSectionChallenges",
       );
       const modalSectionLinks = document.getElementById("modalSectionLinks");
+
+      const modalScrollArea = document.getElementById("modalScrollArea");
 
       function setModalLanguage() {
         modalInner.classList.remove("korean-font", "japanese-font");
@@ -1343,12 +1347,13 @@
         });
 
         projectModal.dataset.projectId = projectId;
-
         projectModal.classList.remove("hidden");
         projectModal.classList.add("flex");
         document.body.classList.add("overflow-hidden");
 
         requestAnimationFrame(() => {
+          modalScrollArea.scrollTop = 0;
+
           projectModal.classList.remove("bg-black/0");
           projectModal.classList.add("bg-black/60");
 
@@ -1358,6 +1363,8 @@
       }
 
       function closeModal() {
+        modalScrollArea.scrollTop = 0;
+
         projectModal.classList.remove("bg-black/60");
         projectModal.classList.add("bg-black/0");
 
